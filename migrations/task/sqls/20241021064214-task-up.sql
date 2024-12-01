@@ -143,7 +143,7 @@ VALUES (
 -- ANS
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COAH" WHERE name = '李燕容'),
+    (SELECT id FROM "COACH" WHERE name = '李燕容'),
     (SELECT id FROM "SKILL" WHERE name = '重訓')  
 );
 

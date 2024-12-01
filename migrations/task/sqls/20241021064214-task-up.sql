@@ -141,7 +141,7 @@ VALUES (
     -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
 
 -- ANS
-INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+IINSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
     (SELECT id FROM "COACH" WHERE user_id = '1f543180-14c6-4c80-a488-d473cdf632f0'),
     (SELECT id FROM "SKILL" WHERE name = '重訓')
@@ -150,14 +150,33 @@ VALUES (
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
     (SELECT id FROM "COACH" WHERE user_id = '167e04f4-9c75-48a7-a9c2-c68134e291dd'),
-    (SELECT id FROM "SKILL" WHERE name in('重訓', '瑜伽'))
+    (SELECT id FROM "SKILL" WHERE name = '重訓')
+);
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+VALUES (
+    (SELECT id FROM "COACH" WHERE user_id = '167e04f4-9c75-48a7-a9c2-c68134e291dd'),
+    (SELECT id FROM "SKILL" WHERE name = '瑜珈')
 );
 
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
     (SELECT id FROM "COACH" WHERE user_id = 'fbab4d2a-382d-4f83-8ad1-18d7d6a60bc9'),
-    (SELECT id FROM "SKILL" WHERE name in('重訓', '有氧運動', '復健訓練'))
+    (SELECT id FROM "SKILL" WHERE name = '重訓')
 );
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+VALUES (
+    (SELECT id FROM "COACH" WHERE user_id = 'fbab4d2a-382d-4f83-8ad1-18d7d6a60bc9'),
+    (SELECT id FROM "SKILL" WHERE name = '有氧運動')
+);
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+VALUES (
+    (SELECT id FROM "COACH" WHERE user_id = 'fbab4d2a-382d-4f83-8ad1-18d7d6a60bc9'),
+    (SELECT id FROM "SKILL" WHERE name = '復健訓練')
+);
+
 
 
 

@@ -148,21 +148,6 @@ SELECT
 FROM "SKILL"
 WHERE name = '重訓';
 
-INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
-SELECT 
-    '60cd00c5-267f-49f3-8132-1ce9041c9b69',
-    id
-FROM "SKILL"
-WHERE name IN ('重訓', '瑜伽');
-
-INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
-SELECT 
-    '23744fdf-8a1d-4802-915a-36153a1725b0',
-    id
-FROM "SKILL"
-WHERE name IN ('重訓', '有氧運動', '復健訓練');
-
-
 
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年

@@ -175,24 +175,7 @@ UPDATE "COACH"
 SET experience_years = '5'
 WHERE id IN ('23744fdf-8a1d-4802-915a-36153a1725b0');
 
--- 補充 因為我認為實務上應該不會用 id 進行更新，所以我有做另一個方式是，先在 coach 表上面新增 user_name 的欄位
-
-ALTER TABLE "COACH"
-ADD COLUMN user_name VARCHAR(50);
-
--- 1. 再把 user 表的 name 塞到 coach 表中
-UPDATE "COACH" 
-SET user_name = "USER".name
-FROM "USER" 
-WHERE "COACH".user_id = "USER".id;
-
--- 2. 因此最後我要更新年資，我就可以用 user_name 做更新
-UPDATE "COACH"
-SET experience_years = '5'
-WHERE user_name IN ('Q太郎');
-
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
-
 
 
 

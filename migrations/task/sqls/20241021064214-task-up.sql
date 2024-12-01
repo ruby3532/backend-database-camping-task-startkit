@@ -167,13 +167,7 @@ WHERE name IN ('重訓', '有氧運動', '復健訓練');
     -- 2. 教練`Q太郎` 的經驗年數為5年
 
 -- ANS
-UPDATE "COACH"
-SET experience_years = '3'
-WHERE id IN ('23744fdf-8a1d-4802-915a-36153a1725b0');
 
-UPDATE "COACH"
-SET experience_years = '5'
-WHERE id IN ('23744fdf-8a1d-4802-915a-36153a1725b0');
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
 

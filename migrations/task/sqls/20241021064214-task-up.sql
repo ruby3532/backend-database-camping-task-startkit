@@ -140,6 +140,27 @@ VALUES (
     -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
     -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
 
+-- ANS
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+SELECT 
+    '0da291ee-a82a-43ed-a512-1c25193f949b',
+    id
+FROM "SKILL"
+WHERE name = '重訓';
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+SELECT 
+    '60cd00c5-267f-49f3-8132-1ce9041c9b69',
+    id
+FROM "SKILL"
+WHERE name IN ('重訓', '瑜伽');
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+SELECT 
+    '23744fdf-8a1d-4802-915a-36153a1725b0',
+    id
+FROM "SKILL"
+WHERE name IN ('重訓', '有氧運動', '復健訓練');
 
 
 

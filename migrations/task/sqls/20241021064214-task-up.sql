@@ -142,11 +142,23 @@ VALUES (
 
 -- ANS
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
-SELECT 
-    '0da291ee-a82a-43ed-a512-1c25193f949b',
-    id
-FROM "SKILL"
-WHERE name = '重訓';
+VALUES (
+    (SELECT id FROM "COACH" WHERE user_name = '李燕容'),
+    (SELECT id FROM "SKILL" WHERE name = '重訓')
+);
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+VALUES (
+    (SELECT id FROM "COACH" WHERE user_name = '肌肉棒子'),
+    (SELECT id FROM "SKILL" WHERE name in('重訓', '瑜伽'))
+);
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+VALUES (
+    (SELECT id FROM "COACH" WHERE user_name = '肌肉棒子'),
+    (SELECT id FROM "SKILL" WHERE name in('重訓', '有氧運動', '復健訓練'))
+);
+
 
 
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：

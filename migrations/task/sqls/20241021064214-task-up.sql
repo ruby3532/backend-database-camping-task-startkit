@@ -114,6 +114,25 @@ VALUES (
     -- 3. 將用戶`Q太郎`新增為教練，並且年資設定為2年
 
 
+-- ANS
+INSERT INTO "COACH" (user_id, experience_years)
+VALUES (
+    (SELECT id FROM "USER" WHERE name = '李燕容'),
+    2  
+);
+
+INSERT INTO "COACH" (user_id, experience_years)
+VALUES (
+    (SELECT id FROM "USER" WHERE name = '肌肉棒子'),
+    2  
+);
+
+INSERT INTO "COACH" (user_id, experience_years)
+VALUES (
+    (SELECT id FROM "USER" WHERE name = 'Q太郎'),
+    2  
+);
+
 
 
 -- 3-2. 新增：承1，為三名教練新增專長資料至 `COACH_LINK_SKILL` ，資料需求如下：
@@ -121,11 +140,65 @@ VALUES (
     -- 2. 教練`肌肉棒子` 需要有 `瑜伽` 專長
     -- 3. 教練`Q太郎` 需要有 `有氧運動` 與 `復健訓練` 專長
 
+-- ANS
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+VALUES (
+    (SELECT id FROM "COAH" WHERE name = '李燕容'),
+    (SELECT id FROM "SKILL" WHERE name = '重訓')  
+);
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+SELECT 
+    '60cd00c5-267f-49f3-8132-1ce9041c9b69',
+    id
+FROM "SKILL"
+WHERE name IN ('重訓', '瑜伽');
+
+INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
+SELECT 
+    '23744fdf-8a1d-4802-915a-36153a1725b0',
+    id
+FROM "SKILL"
+WHERE name IN ('重訓', '有氧運動', '復健訓練');
+
+
 -- 3-3 修改：更新教練的經驗年數，資料需求如下：
     -- 1. 教練`肌肉棒子` 的經驗年數為3年
     -- 2. 教練`Q太郎` 的經驗年數為5年
 
+-- ANS
+UPDATE "COACH"
+SET experience_years = '3'
+WHERE id IN ('23744fdf-8a1d-4802-915a-36153a1725b0');
+
+UPDATE "COACH"
+SET experience_years = '5'
+WHERE id IN ('23744fdf-8a1d-4802-915a-36153a1725b0');
+
+-- 補充 因為我認為實務上應該不會用 id 進行更新，所以我有做另一個方式是，先在 coach 表上面新增 user_name 的欄位
+
+ALTER TABLE "COACH"
+ADD COLUMN user_name VARCHAR(50);
+
+-- 再把 user 表的 name 塞到 coach 表中
+UPDATE "COACH" 
+SET user_name = "USER".name
+FROM "USER" 
+WHERE "COACH".user_id = "USER".id;
+
+-- 因此最後我要更新年資，我就可以用 user_name 做更新
+UPDATE "COACH"
+SET experience_years = '5'
+WHERE user_name IN ('Q太郎');
+
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
+
+-- ANS
+INSERT INTO "SKILL"(name)
+VALUES ('空中瑜伽');
+
+DELETE FROM "SKILL"
+WHERE name = '空中瑜伽';
 
 
 --  ████████  █████   █    █   █ 

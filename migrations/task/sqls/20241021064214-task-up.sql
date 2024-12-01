@@ -180,13 +180,13 @@ WHERE id IN ('23744fdf-8a1d-4802-915a-36153a1725b0');
 ALTER TABLE "COACH"
 ADD COLUMN user_name VARCHAR(50);
 
--- 再把 user 表的 name 塞到 coach 表中
+-- 1. 再把 user 表的 name 塞到 coach 表中
 UPDATE "COACH" 
 SET user_name = "USER".name
 FROM "USER" 
 WHERE "COACH".user_id = "USER".id;
 
--- 因此最後我要更新年資，我就可以用 user_name 做更新
+-- 2. 因此最後我要更新年資，我就可以用 user_name 做更新
 UPDATE "COACH"
 SET experience_years = '5'
 WHERE user_name IN ('Q太郎');
@@ -217,6 +217,9 @@ WHERE name = '空中瑜伽';
     -- 5. 授課結束時間`end_at`設定為2024-11-25 16:00:00
     -- 6. 最大授課人數`max_participants` 設定為10
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
+
+
+
 
 
 -- ████████  █████   █    █████ 

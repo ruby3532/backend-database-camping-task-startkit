@@ -143,40 +143,39 @@ VALUES (
 -- ANS
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COACH" WHERE user_id = '1f543180-14c6-4c80-a488-d473cdf632f0'),
+    (SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'lee2000@hexschooltest.io')),
     (SELECT id FROM "SKILL" WHERE name = '重訓')
 );
 
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COACH" WHERE user_id = '167e04f4-9c75-48a7-a9c2-c68134e291dd'),
+    (SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'muscle@hexschooltest.io')),
     (SELECT id FROM "SKILL" WHERE name = '重訓')
 );
 
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COACH" WHERE user_id = '167e04f4-9c75-48a7-a9c2-c68134e291dd'),
+    (SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'muscle@hexschooltest.io')),
     (SELECT id FROM "SKILL" WHERE name = '瑜伽')
 );
 
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COACH" WHERE user_id = 'fbab4d2a-382d-4f83-8ad1-18d7d6a60bc9'),
+    (SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'starplatinum@hexschooltest.io')),
     (SELECT id FROM "SKILL" WHERE name = '重訓')
 );
 
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COACH" WHERE user_id = 'fbab4d2a-382d-4f83-8ad1-18d7d6a60bc9'),
+    (SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'starplatinum@hexschooltest.io')),
     (SELECT id FROM "SKILL" WHERE name = '有氧運動')
 );
 
 INSERT INTO "COACH_LINK_SKILL" (coach_id, skill_id)
 VALUES (
-    (SELECT id FROM "COACH" WHERE user_id = 'fbab4d2a-382d-4f83-8ad1-18d7d6a60bc9'),
+    (SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'starplatinum@hexschooltest.io')),
     (SELECT id FROM "SKILL" WHERE name = '復健訓練')
 );
-
 
 
 

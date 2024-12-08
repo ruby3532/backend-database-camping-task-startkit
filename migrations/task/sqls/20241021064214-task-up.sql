@@ -374,6 +374,15 @@ ORDER BY "COACH".experience_years DESC;
 -- 6-2 查詢：查詢每種專長的教練數量，並只列出教練數量最多的專長（需使用 group by, inner join 與 order by 與 limit 語法）
 -- 顯示須包含以下欄位： 專長名稱, coach_total
 
+-- ANS
+SELECT COUNT("COACH_LINK_SKILL".skill_id) AS "coach_total",
+       "SKILL".name AS "專長名稱"
+FROM "COACH"
+INNER JOIN "COACH_LINK_SKILL" ON "COACH".id = "COACH_LINK_SKILL".coach_id
+INNER JOIN "SKILL" ON "COACH_LINK_SKILL".skill_id = "SKILL".id
+GROUP BY "SKILL".name
+ORDER BY "coach_total" DESC
+LIMIT 1;
 
 
 -- 6-3. 查詢：計算 11 月份組合包方案的銷售數量

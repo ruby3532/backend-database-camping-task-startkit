@@ -349,6 +349,8 @@ GROUP BY "COURSE_BOOKING".user_id
 , "CREDIT_PURCHASE".purchased_credits;
 
 
+
+
 -- ████████  █████   █     ███  
 --   █ █   ██    █  █     █     
 --   █ █████ ███ ███      ████  

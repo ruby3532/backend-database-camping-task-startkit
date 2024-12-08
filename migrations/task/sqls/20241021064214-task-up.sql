@@ -411,4 +411,4 @@ WHERE EXTRACT(MONTH FROM "purchase_at") = 11;
 -- ANS
 SELECT Distinct COUNT("COURSE_BOOKING".user_id) AS "預約會員人數"
 FROM "COURSE_BOOKING"
-WHERE EXTRACT(MONTH FROM "booking_at") = 11 AND status in("上課中" OR "即將授課") ;
+WHERE EXTRACT(MONTH FROM "created_at") = 11 AND status in("上課中" OR "即將授課") ;

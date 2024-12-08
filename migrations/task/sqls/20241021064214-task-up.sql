@@ -339,6 +339,15 @@ GROUP BY user_id;
     -- inner join ( 用戶王小明的已使用堂數) as "COURSE_BOOKING"
     -- on "COURSE_BOOKING".user_id = "CREDIT_PURCHASE".user_id;
 
+-- ANS
+SELECT "COURSE_BOOKING".user_id AS user_id,
+	   ("CREDIT_PURCHASE".purchased_credits - COUNT("COURSE_BOOKING".status)) as remaining_credit
+FROM "COURSE_BOOKING"
+inner JOIN "CREDIT_PURCHASE" ON "CREDIT_PURCHASE".user_id = "COURSE_BOOKING".user_id
+WHERE "COURSE_BOOKING".user_id = (SELECT id FROM "USER" WHERE name = '王小明') AND "COURSE_BOOKING".status = '上課中' 
+GROUP BY "COURSE_BOOKING".user_id
+, "CREDIT_PURCHASE".purchased_credits;
+
 
 -- ████████  █████   █     ███  
 --   █ █   ██    █  █     █     

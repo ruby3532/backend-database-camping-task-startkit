@@ -399,5 +399,11 @@ GROUP BY "組合包方案名稱";
 -- 6-4. 查詢：計算 11 月份總營收（使用 purchase_at 欄位統計）
 -- 顯示須包含以下欄位： 總營收
 
+-- ANS
+
+SELECT COALESCE (SUM("CREDIT_PURCHASE".price_paid),0) AS "總營收"
+FROM "CREDIT_PURCHASE"
+WHERE EXTRACT(MONTH FROM "purchase_at") = 11;
+
 -- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
